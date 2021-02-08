@@ -295,7 +295,6 @@ while itera<it:
     prom.append(promedio(valor_fit)/p)
     maxi.append(valor_maximo(valor_fit))
     
-    
     ps_cruza.clear()
     ps_seleccion.clear()
     ps.clear()
