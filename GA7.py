@@ -299,12 +299,11 @@ while itera<it:
     ps_cruza.clear()
     ps_seleccion.clear()
     ps.clear()
-    
-    #iteraciones.append(itera)
+
     itera+=1
     
 #print(maxi)
+#print(prom)
 plt.plot(prom)
 plt.plot(maxi)
-#plt.plot(mejor)
 plt.show()
