@@ -145,9 +145,9 @@ def repeticiones_columnas(tablero_c):
     f2=[]
     f3=[]
     f4=[]
-    global columnas
     global rep_columnas
     
+    rep_columnas.clear()
     #--------------------Verificar números repetidos en columnas--------------------
     for i in range(0,len(tablero_c)):
         p=0
@@ -173,14 +173,10 @@ def repeticiones_columnas(tablero_c):
             
         f3.sort()
         f4=f3[:]
-        if columnas == 0:
-            rep_columnas.append(f4)
-            columnas=1
-        else: 
-            for i in range(len(rep_columnas)):
-                rep_columnas.pop(i)
-                rep_columnas.index(i,f4[i])
-        repetidos=len(f2)    
+        rep_columnas.append(f4)
+        
+        repetidos=len(f2)   
+    columnas=1
 #--------------------------------------------------------------------
 def repeticiones_cuadros(sudoku_o):
     f=[]
@@ -189,9 +185,9 @@ def repeticiones_cuadros(sudoku_o):
     f3=[]
     f4=[]
     f5=[]
-    global cuadros3x3
     global rep_cuadros3x3
     
+    rep_cuadros3x3.clear()
     n_repetidos_cuadros=[]
     
     #--------------------Verifica números repetidos en cuadros 3x3--------------------
@@ -237,13 +233,7 @@ def repeticiones_cuadros(sudoku_o):
             f.sort()
             f5=f[:]
             n_repetidos_cuadros.append(repetidos)
-            if cuadros3x3 == 0:
-                rep_cuadros3x3.append(f5)
-                cuadros3x3=1
-            else:
-                for i in range(len(rep_cuadros3x3)):
-                    rep_cuadros3x3.pop(i)
-                    rep_cuadros3x3.index(i,f5[i])
+            rep_cuadros3x3.append(f5)             
 #--------------------------------------------------------------------
 def mutacion(sudoku_o):
     
@@ -306,9 +296,8 @@ a=1
 b=9
 contador=1
 mu=b
-sudoku_original=poblacion_i(a,b,mu)
 
-tablero_c=sudoku_original[:]
+sudoku_original=poblacion_i(a,b,mu)
 
 while iteracion<iteraciones:
     '''print('')
@@ -318,7 +307,17 @@ while iteracion<iteraciones:
     fitness_original= fitness(sudoku_original)
     #print(fitness_original)
     
+    #print("Repeticiones columnas")
+    repeticiones_columnas(sudoku_original)
     
+    '''for i in range (len(rep_columnas)):
+        print(rep_columnas[i])
+        
+    print("Repeticiones cuadros 3x3")'''
+    repeticiones_cuadros(sudoku_original)
+    
+    '''for i in range (len(rep_cuadros3x3)):
+        print(rep_cuadros3x3[i])'''
 
     tablero_c = c.deepcopy(sudoku_original)
  
