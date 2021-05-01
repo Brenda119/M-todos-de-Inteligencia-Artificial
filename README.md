@@ -1,1 +1,1 @@
-# Metodos-de-Inteligencia-Artificial
+# M-todos-de-Inteligencia-Artificial
